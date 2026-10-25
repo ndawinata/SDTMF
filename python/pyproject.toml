@@ -1,0 +1,18 @@
+[project]
+name = "sdtmf"
+version = "2.0.0"
+description = "Secure DTMF frame encryption (SDTMF v2)"
+readme = "../README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+authors = [{ name = "Nanda Winata" }]
+
+[project.urls]
+Specification = "https://github.com/nandawinata/DTMF_Encrypt/blob/main/SPEC.md"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["sdtmf"]

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+node_modules/
+.DS_Store
+c/extras/test_sdtmf
+*.test
+/tmp

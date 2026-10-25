@@ -1,0 +1,23 @@
+{
+  "name": "sdtmf",
+  "version": "2.0.0",
+  "description": "Secure DTMF frame encryption (SDTMF v2)",
+  "main": "sdtmf.js",
+  "types": "sdtmf.d.ts",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "sdtmf.js",
+    "sdtmf.d.ts"
+  ],
+  "keywords": [
+    "dtmf",
+    "hmac",
+    "encryption"
+  ]
+}

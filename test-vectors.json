@@ -1,0 +1,72 @@
+{
+  "version": "SDTMF-v2",
+  "password": "secret-key",
+  "password_utf8_hex": "7365637265742d6b6579",
+  "salt_ascii": "SDTMF-v2",
+  "pbkdf2_iters": 100000,
+  "defaults": { "ctr_tx": 2, "tag_len": 6, "start": "*", "end": "#" },
+  "alphabet": "0123456789ABCD",
+  "master": "a09254a780126ad91ed1c6b3cbe80812a4180e2ed4feac9d35f7cdacf45fad70",
+  "k_enc": "3dbd84b492f20d876117a7fb104d882ca4cb0287cf52dec365a0103858309c8e",
+  "k_mac": "7412b7af5f0a104565db40baa142ad586db1654042ebddcfcc487e80d5442189",
+  "keystream": {
+    "ctr1_len10": [4, 11, 11, 4, 10, 5, 8, 13, 3, 12],
+    "ctr2_len10": [6, 3, 10, 2, 3, 1, 12, 1, 0, 11],
+    "ctr3_len16": [4, 6, 11, 7, 7, 10, 6, 5, 9, 2, 12, 4, 6, 0, 11, 3]
+  },
+  "encrypt": [
+    { "ctr": 1, "msg": "1", "frame": "*01505D531#" },
+    { "ctr": 2, "msg": "12AB", "frame": "*02756DCB16BD#" },
+    { "ctr": 3, "msg": "0123456789ABCD", "frame": "*0347DAB1CC3B814D5113B5#" }
+  ],
+  "decrypt_ok": [
+    { "start_rx_last": -1, "frame": "*01505D531#", "msg": "1", "end_rx_last": 1 },
+    { "start_rx_last": 1, "frame": "*02756DCB16BD#", "msg": "12AB", "end_rx_last": 2 },
+    { "start_rx_last": 2, "frame": "*0347DAB1CC3B814D5113B5#", "msg": "0123456789ABCD", "end_rx_last": 3 }
+  ],
+  "decrypt_reject": [
+    { "reason": "replay", "start_rx_last": 1, "frame": "*01505D531#" },
+    { "reason": "tampered_tag", "start_rx_last": -1, "frame": "*01505D537#" },
+    { "reason": "missing_end", "start_rx_last": -1, "frame": "*01505D531" },
+    { "reason": "missing_start", "start_rx_last": -1, "frame": "01505D531#" },
+    { "reason": "illegal_char", "start_rx_last": -1, "frame": "*015X5D531#" },
+    { "reason": "too_short", "start_rx_last": -1, "frame": "*01123456#" },
+    { "reason": "replay_after_wrap", "start_rx_last": 196, "frame": "*00030C76C#" }
+  ],
+  "wrong_password": "wrong-key",
+  "wrong_password_reject_frame": "*01505D531#",
+  "counter_wrap": {
+    "start_tx_ctr": 195,
+    "msg": "A",
+    "frame": "*00030C76C#",
+    "end_tx_ctr": 196,
+    "start_rx_last": 195,
+    "end_rx_last": 196
+  },
+  "configs": [
+    { "ctr_tx": 2, "tag_len": 6, "start": "*", "end": "#", "msg": "1234", "frame": "*015D0857C1CB#", "frame2": "*0275D6549036#" },
+    { "ctr_tx": 2, "tag_len": 3, "start": "*", "end": "#", "msg": "1234", "frame": "*015D081CB#", "frame2": "*0275D6036#" },
+    { "ctr_tx": 2, "tag_len": 4, "start": "*", "end": "#", "msg": "1234", "frame": "*015D08C1CB#", "frame2": "*0275D69036#" },
+    { "ctr_tx": 1, "tag_len": 4, "start": "*", "end": "#", "msg": "1234", "frame": "*15D08C1CB#", "frame2": "*275D69036#" },
+    { "ctr_tx": 0, "tag_len": 4, "start": "*", "end": "#", "msg": "1234", "frame": "*5D08C1CB#", "frame2": "*75D69036#" },
+    { "ctr_tx": 2, "tag_len": 8, "start": "*", "end": "#", "msg": "1234", "frame": "*015D085B57C1CB#", "frame2": "*0275D61D549036#" },
+    { "ctr_tx": 3, "tag_len": 6, "start": "*", "end": "#", "msg": "1234", "frame": "*0015D0857C1CB#", "frame2": "*00275D6549036#" },
+    { "ctr_tx": 2, "tag_len": 6, "start": "#", "end": "*", "msg": "1234", "frame": "#015D0857C1CB*", "frame2": "#0275D6549036*" },
+    { "ctr_tx": 2, "tag_len": 6, "start": "", "end": "", "msg": "1234", "frame": "015D0857C1CB", "frame2": "0275D6549036" },
+    { "ctr_tx": 1, "tag_len": 4, "start": "*", "end": "", "msg": "1234", "frame": "*15D08C1CB", "frame2": "*275D69036" },
+    { "ctr_tx": 2, "tag_len": 6, "start": "<", "end": ">", "msg": "1234", "frame": "<015D0857C1CB>", "frame2": "<0275D6549036>" }
+  ],
+  "config_reject": [
+    { "reason": "default_markers_under_custom", "ctr_tx": 2, "tag_len": 6, "start": "<", "end": ">", "frame": "*015D0857C1CB#" },
+    { "reason": "swapped_markers", "ctr_tx": 2, "tag_len": 6, "start": "*", "end": "#", "frame": "#015D0857C1CB*" }
+  ],
+  "invalid_configs": [
+    { "reason": "ctr_tx_too_large", "ctr_tx": 9, "tag_len": 6, "start": "*", "end": "#" },
+    { "reason": "tag_len_zero", "ctr_tx": 2, "tag_len": 0, "start": "*", "end": "#" },
+    { "reason": "tag_len_too_large", "ctr_tx": 2, "tag_len": 9, "start": "*", "end": "#" },
+    { "reason": "start_in_alphabet", "ctr_tx": 2, "tag_len": 6, "start": "1", "end": "#" },
+    { "reason": "end_in_alphabet", "ctr_tx": 2, "tag_len": 6, "start": "*", "end": "A" },
+    { "reason": "start_equals_end", "ctr_tx": 2, "tag_len": 6, "start": "*", "end": "*" },
+    { "reason": "start_two_chars", "ctr_tx": 2, "tag_len": 6, "start": "**", "end": "#" }
+  ]
+}
