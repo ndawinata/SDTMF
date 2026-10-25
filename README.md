@@ -1,5 +1,7 @@
 # SDTMF v2
 
+[![DOI](https://zenodo.org/badge/1432957615.svg)](https://doi.org/10.5281/zenodo.23637663)
+
 Authenticated DTMF frames for Python, JavaScript (Node), C / Arduino, and Go.
 
 A sender turns a short message (`0-9A-D`) into a tone string such as
@@ -199,3 +201,24 @@ gcc -O2 -I c/src c/extras/test_sdtmf.c c/src/sdtmf.c c/src/sha256.c -o /tmp/test
 | C | `c/` | Arduino Library Manager, PlatformIO | tag a GitHub release, then submit `library.properties` |
 
 Keep the package versions in lockstep with the spec version (`SDTMF-v2`).
+
+## Citation
+
+If you use SDTMF in your research, please cite it. The concept DOI
+[10.5281/zenodo.23637663](https://doi.org/10.5281/zenodo.23637663) always
+resolves to the latest release; v2.0.0 is
+[10.5281/zenodo.23637664](https://doi.org/10.5281/zenodo.23637664).
+
+```bibtex
+@software{winata_sdtmf_2026,
+  author    = {Winata, Nanda},
+  title     = {{SDTMF}: Authenticated encryption for {DTMF} signaling},
+  version   = {2.0.0},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.23637664},
+  url       = {https://github.com/ndawinata/SDTMF}
+}
+```
+
+Citation metadata is also available in [`CITATION.cff`](CITATION.cff).

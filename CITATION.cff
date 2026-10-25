@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "SDTMF: Authenticated encryption for DTMF signaling"
+abstract: >-
+  Authenticated, replay-protected encryption for DTMF tone frames, with
+  interoperable implementations in Python, JavaScript, C/Arduino, and Go.
+type: software
+authors:
+  - family-names: Winata
+    given-names: Nanda
+version: 2.0.0
+date-released: 2026-10-25
+doi: 10.5281/zenodo.23637664
+license: MIT
+repository-code: "https://github.com/ndawinata/SDTMF"
+keywords:
+  - DTMF
+  - cryptography
+  - authenticated encryption
+  - embedded systems
+  - Arduino
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23637663
+    description: Concept DOI (all versions, resolves to the latest)
+  - type: doi
+    value: 10.5281/zenodo.23637664
+    description: Version DOI for v2.0.0
