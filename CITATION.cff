@@ -8,6 +8,7 @@ type: software
 authors:
   - family-names: Winata
     given-names: Nanda
+    orcid: "https://orcid.org/0009-0003-7864-261X"
 version: 2.0.0
 date-released: 2026-10-25
 doi: 10.5281/zenodo.23637664
