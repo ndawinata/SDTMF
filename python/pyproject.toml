@@ -1,19 +1,31 @@
 [project]
 name = "sdtmf"
-version = "2.0.0"
-description = "Secure DTMF frame encryption (SDTMF v2)"
-readme = "../README.md"
-license = { text = "MIT" }
+version = "2.0.1"
+description = "Authenticated, replay-protected encryption for DTMF tone frames (SDTMF v2)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.8"
 authors = [{ name = "Nanda Winata" }]
+keywords = ["dtmf", "encryption", "hmac", "authentication", "mt8870", "embedded"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Communications :: Telephony",
+    "Topic :: Security :: Cryptography",
+]
 
 [project.urls]
 Homepage = "https://github.com/ndawinata/SDTMF"
 Specification = "https://github.com/ndawinata/SDTMF/blob/main/SPEC.md"
 Issues = "https://github.com/ndawinata/SDTMF/issues"
+DOI = "https://doi.org/10.5281/zenodo.23637663"
 
 [build-system]
-requires = ["setuptools>=61"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]

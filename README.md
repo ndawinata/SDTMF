@@ -1,6 +1,10 @@
 # SDTMF v2
 
 [![DOI](https://zenodo.org/badge/1432957615.svg)](https://doi.org/10.5281/zenodo.23637663)
+[![npm](https://img.shields.io/npm/v/sdtmf)](https://www.npmjs.com/package/sdtmf)
+[![PyPI](https://img.shields.io/pypi/v/sdtmf)](https://pypi.org/project/sdtmf/)
+[![Go Reference](https://pkg.go.dev/badge/github.com/ndawinata/SDTMF/go/v2.svg)](https://pkg.go.dev/github.com/ndawinata/SDTMF/go/v2)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Authenticated DTMF frames for Python, JavaScript (Node), C / Arduino, and Go.
 
@@ -14,6 +18,15 @@ repo must pass [`test-vectors.json`](test-vectors.json).
 This is a custom construction (PBKDF2 + HMAC-SHA256 + 14-symbol keystream). It
 has not been formally audited. Persist `tx_ctr` / `rx_last` across restarts,
 and never share one password between two senders.
+
+## Install
+
+| Language | Package | Install |
+|---|---|---|
+| Python | [PyPI `sdtmf`](https://pypi.org/project/sdtmf/) | `pip install sdtmf` |
+| JavaScript / TypeScript | [npm `sdtmf`](https://www.npmjs.com/package/sdtmf) | `npm install sdtmf` |
+| Go | [pkg.go.dev](https://pkg.go.dev/github.com/ndawinata/SDTMF/go/v2) | `go get github.com/ndawinata/SDTMF/go/v2` |
+| C / Arduino | [`c/`](c/) | copy `c/` into your Arduino `libraries/` folder |
 
 ## Frame format
 
@@ -105,7 +118,7 @@ tx.get_state()             # {'tx_ctr': ..., 'rx_last': ...} — persist this
 
 ```bash
 PYTHONPATH=python python3 -c "from sdtmf import SecureDTMF; print(SecureDTMF('secret-key').encrypt('1'))"
-pip install sdtmf          # after publishing
+pip install sdtmf
 ```
 
 `encrypt.py` at the repo root is a small demo that imports the same library.
@@ -125,7 +138,7 @@ const short = new SecureDTMF("secret-key", 1, 4);   // positional ctrTx, tagLen 
 
 ```bash
 node -e "const {SecureDTMF}=require('./js/sdtmf'); console.log(new SecureDTMF('secret-key').encrypt('1'))"
-npm install sdtmf          # after publishing
+npm install sdtmf
 ```
 
 ### C / Arduino
