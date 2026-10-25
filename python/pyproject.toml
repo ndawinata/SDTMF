@@ -8,7 +8,9 @@ requires-python = ">=3.8"
 authors = [{ name = "Nanda Winata" }]
 
 [project.urls]
-Specification = "https://github.com/nandawinata/DTMF_Encrypt/blob/main/SPEC.md"
+Homepage = "https://github.com/ndawinata/SDTMF"
+Specification = "https://github.com/ndawinata/SDTMF/blob/main/SPEC.md"
+Issues = "https://github.com/ndawinata/SDTMF/issues"
 
 [build-system]
 requires = ["setuptools>=61"]

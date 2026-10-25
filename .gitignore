@@ -8,3 +8,5 @@ node_modules/
 c/extras/test_sdtmf
 *.test
 /tmp
+
+paper/

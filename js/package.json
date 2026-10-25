@@ -5,6 +5,16 @@
   "main": "sdtmf.js",
   "types": "sdtmf.d.ts",
   "license": "MIT",
+  "author": "Nanda Winata",
+  "homepage": "https://github.com/ndawinata/SDTMF#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndawinata/SDTMF.git",
+    "directory": "js"
+  },
+  "bugs": {
+    "url": "https://github.com/ndawinata/SDTMF/issues"
+  },
   "engines": {
     "node": ">=14"
   },

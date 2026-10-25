@@ -1,3 +1,3 @@
-module github.com/nandawinata/sdtmf
+module github.com/ndawinata/SDTMF/go/v2
 
 go 1.18

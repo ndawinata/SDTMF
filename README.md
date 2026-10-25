@@ -152,7 +152,7 @@ Add `c/` as an Arduino library (it has `library.properties` + `src/`).
 ### Go 1.18+
 
 ```go
-import "github.com/nandawinata/sdtmf"
+import "github.com/ndawinata/SDTMF/go/v2" // package sdtmf
 
 tx, err := sdtmf.New("secret-key") // defaults: 2 / 6 / '*' / '#'
 frame, err := tx.Encrypt("1")      // *01505D531#
@@ -167,8 +167,8 @@ raw, err := sdtmf.FromKeys(kEnc, kMac, sdtmf.WithTagLen(8))
 
 ```bash
 cd go && go test
-# after publishing
-go get github.com/nandawinata/sdtmf
+# install
+go get github.com/ndawinata/SDTMF/go/v2@latest
 ```
 
 `TxCtr` and `RxLast` are exported so they can be persisted. Decrypt returns
@@ -195,7 +195,7 @@ gcc -O2 -I c/src c/extras/test_sdtmf.c c/src/sdtmf.c c/src/sha256.c -o /tmp/test
 |---|---|---|---|
 | Python | `python/` | PyPI | `python -m build && twine upload dist/*` |
 | JavaScript | `js/` | npm | `npm publish` |
-| Go | `go/` | pkg.go.dev | tag a GitHub release (`go get github.com/nandawinata/sdtmf`) |
+| Go | `go/` | pkg.go.dev | push tag `go/vX.Y.Z` alongside `vX.Y.Z` (`go get github.com/ndawinata/SDTMF/go/v2`) |
 | C | `c/` | Arduino Library Manager, PlatformIO | tag a GitHub release, then submit `library.properties` |
 
 Keep the package versions in lockstep with the spec version (`SDTMF-v2`).
